@@ -136,6 +136,7 @@ int i, paletteCount=0, rcolour, ccount;
 
 
 //fills the palette with the set palette number
+//this dosen work!!!!
 int populatePalette(char *palFile,PALETTE *pal,int paln){
 FILE *fp;
 __PALETTE_FILE__ = palFile;
@@ -172,18 +173,12 @@ int i, paletteCount=0, rcolour, ccount=0;
    //fread( &rcolour, 4, 1, fp);
    
   }
-  printf( "populatePallete: colcount %d\n" ,ccount);
-  printf( "populatePallete: requested pal is %d currunt pal is %d\n" ,paln ,paletteCount);
-
   if(paletteCount==paln){
    pal->colour[ccount].R	=	(rcolour &(0x000000ff) ) ;
    pal->colour[ccount].G	=	(rcolour &(0x0000FF00) ) >>8;
    pal->colour[ccount].B	=	(rcolour &(0x00ff0000) ) >>16;
    pal->colour[ccount].X	=	(rcolour &(0xff000000) ) >>24;
    ccount++;
-   printf( "populatePallete: end of palette %d\n" ,ccount);
-   //printf( "populatePallete: found a colour %x\n", rcolour);
-   //printf( "populatePallete: written colour %d to palette %d\n",ccount, paletteCount);
 }
   
 
